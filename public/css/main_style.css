@@ -1,0 +1,47 @@
+/* COMMON TO ALL CHARTS */
+div.charts {
+    float: left;
+}
+
+div.sub_charts {
+    float: left;
+}
+
+
+/* MAP CHART */
+div.map_chart {
+    
+}
+
+div.sub_map {
+    width: 5%;
+}
+
+div.infos {
+    border: solid 1px;
+}
+
+svg#legend {
+    padding-left: 2%;
+}
+
+
+/* DONUT CHART */
+div.donut_chart {
+
+}
+
+
+/* GENERAL */
+h1 {
+    font-family: sans-serif; 
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
