@@ -1,3 +1,5 @@
+
+
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 600 - margin.left - margin.right,
@@ -28,7 +30,9 @@ var svg = d3.select("body").append("svg")
         .attr("transform", 
               "translate(" + margin.left + "," + margin.top + ")");
 
-//var div= d3.select("#ageChart").append("div");
+var div= d3.select("body").append("div")
+    .attr("class", "tooltip")         
+    .style("opacity", 0);;
 // get the data
 d3.csv("datasets/dataAge.csv", function(error, data) {
 if (error) throw error;
@@ -43,25 +47,6 @@ data.forEach(function(d) {
 x.domain(data.map(function(d) { return d.categorie; }));
 y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
-// append the rectangles for the bar chart
-// svg.selectAll(".bar")
-//   .data(data)
-// .enter().append("rect")
-//   .attr("class", "bar")
-//   .attr("x", function(d) { return x(d.categorie); })
-//   .attr("width", x.rangeBand())
-//   .attr("y", function(d) { return y(d.value); })
-//   .attr("height", function(d) { return height - y(d.value); })
-//   .attr("fill", "#69b3a2");
-
-// // add the x Axis
-// svg.append("g")
-//   .attr("transform", "translate(0," + height + ")")
-//   .call(xAxis);
-
-// // add the y Axis
-// svg.append("g")
-//   .call(yAxis);
 
   svg.append("g")
       .attr("class", "x axis")
@@ -89,7 +74,20 @@ y.domain([0, d3.max(data, function(d) { return d.value; })]);
       .attr("x", function(d) { return x(d.categorie); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); });
+      .attr("height", function(d) { return height - y(d.value); })
+      .on("mouseover",function(d){
+            div.transition()
+                  .duration(200)
+                  .style("opacity",.9);
+            div.html("Nb per age : "+d.value)
+                  .style("left",(d3.event.pageX +10)+"px")
+                  .style("top",(d3.event.pageY -50)+"px");
+      })
+      .on("mouseout",function(d){
+            div.transition()
+                  .duration(500)
+                  .style("opacity",0);
+      });
 
 });
 
