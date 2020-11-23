@@ -10,10 +10,11 @@ let categories = [
 
 
 // IMPORT DATA
-d3.dsv(';')("datasets/dataFinalUS.csv", function(data) {
+d3.csv("datasets/dataFinalUS.csv", function(data) {
 
 
-	let donut = new Donut(dWidth, dHeight, "#donut", "donutTooltip");
+    let donut = new Donut(dWidth, dHeight, "#donut", "donutTooltip");
+    console.log(data);
 	donut.generateDonut(colors, categories, data, true);
 });
 
