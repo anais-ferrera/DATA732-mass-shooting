@@ -54,9 +54,9 @@ y.domain([0, d3.max(data, function(d) { return d.value; })]);
       .call(xAxis)
     .selectAll("text")
       .style("text-anchor", "end")
-      .attr("dx", "-.8em")
+      .attr("dx", "-1em")
       .attr("dy", "-.55em")
-      .attr("transform", "rotate(-90)" );
+      .attr("transform", "rotate(-35)" );
 
   svg1.append("g")
       .attr("class", "y axis")
