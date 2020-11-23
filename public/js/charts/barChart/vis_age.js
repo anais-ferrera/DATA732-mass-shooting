@@ -23,7 +23,7 @@ var yAxis = d3.svg.axis()
 // append the svg object to the body of the page
 // append a 'group' element to 'svg'
 // moves the 'group' element to the top left margin
-var svg = d3.select("body").append("svg")
+var svg1 = d3.select("#bar_chart").append("svg").classed("barChart",true)
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
@@ -32,7 +32,7 @@ var svg = d3.select("body").append("svg")
 
 var div= d3.select("body").append("div")
     .attr("class", "tooltip")         
-    .style("opacity", 0);;
+    .style("opacity", 0);
 // get the data
 d3.csv("datasets/dataAge.csv", function(error, data) {
 if (error) throw error;
@@ -48,7 +48,7 @@ x.domain(data.map(function(d) { return d.categorie; }));
 y.domain([0, d3.max(data, function(d) { return d.value; })]);
 
 
-  svg.append("g")
+  svg1.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
@@ -58,7 +58,7 @@ y.domain([0, d3.max(data, function(d) { return d.value; })]);
       .attr("dy", "-.55em")
       .attr("transform", "rotate(-90)" );
 
-  svg.append("g")
+  svg1.append("g")
       .attr("class", "y axis")
       .call(yAxis)
     .append("text")
@@ -67,7 +67,7 @@ y.domain([0, d3.max(data, function(d) { return d.value; })]);
       .attr("dy", ".71em")
       .style("text-anchor", "end");
 
-  svg.selectAll("bar")
+  svg1.selectAll("bar")
       .data(data)
     .enter().append("rect")
       .style("fill", "steelblue")
