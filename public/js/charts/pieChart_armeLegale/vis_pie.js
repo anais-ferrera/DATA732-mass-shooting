@@ -9,10 +9,10 @@
 
 
 
-var width = 960,
-    height = 500,
+var pwidth = 960,
+    pheight = 500,
     // find the min of width and height and devided by 2
-    radius = Math.min(width, height) / 2;
+    pradius = Math.min(pwidth, pheight) / 2;
 
 // Scales are functions that map from an input domain to an output range.  Ordinal scales have a discrete domain, such as a set of names or categories. 
 // from: https://github.com/mbostock/d3/wiki/Ordinal-Scales
@@ -23,7 +23,7 @@ var color = d3.scale.ordinal()
 // from: https://github.com/mbostock/d3/wiki/SVG-Shapes#arc
 var arc = d3.svg.arc()
     // the outer radius of the pie chart.
-    .outerRadius(radius - 10)
+    .outerRadius(pradius - 10)
     // the inner radius of the pie chart, set 0 for now
     .innerRadius(0);
 
@@ -35,12 +35,14 @@ var pie = d3.layout.pie()
     // set the pie chart value to population.
     .value(function(d) { return d.population; });
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
+var svg = d3.select("#pie_chart").append("svg")
+    .attr("width", pwidth)
+    .attr("height", pheight)
+    .append("g")
+    .attr("transform", "translate(" + pwidth / 2 + "," + pheight / 2 + ")");
+var div1= d3.select("body").append("div")
+    .attr("class", "tooltip")         
+    .style("opacity", 0);
 d3.csv("datasets/dataArme.csv", function(error, data) {
 
   // convert all population to integer
@@ -52,7 +54,20 @@ d3.csv("datasets/dataArme.csv", function(error, data) {
   var g = svg.selectAll(".arc")
       .data(pie(data))
     .enter().append("g")
-      .attr("class", "arc");
+      .attr("class", "arc")
+      .on("mouseover",function(d){
+        div1.transition()
+              .duration(200)
+              .style("opacity",.9);
+        div1.html("Nb : "+d.population)
+              .style("left",(d3.event.pageX +10)+"px")
+              .style("top",(d3.event.pageY -50)+"px");
+    })
+        .on("mouseout",function(d){
+        div1.transition()
+              .duration(500)
+              .style("opacity",0);
+        });
 
   // append path, the pie for each legal
   g.append("path")
