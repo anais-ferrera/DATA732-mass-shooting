@@ -78,7 +78,7 @@ var legendText = ["150+", "100-150", "50-100", "0-50"];
 
 
 // Load in my states data!
-d3.dsv(';')("datasets/dataFinalUS.csv", function (data) {
+d3.csv("datasets/dataFinalUS.csv", function (data) {
 	var expensesCount = d3.nest()
 		.key(function (data) { return data.state; })
 		.rollup(function (v) {
@@ -180,7 +180,7 @@ d3.dsv(';')("datasets/dataFinalUS.csv", function (data) {
 			}
 
 
-		d3.dsv(';')("datasets/mass-shootings-in-america.csv", function (data) {
+		d3.csv("datasets/dataFinalUS.csv", function (data) {
 
 			svg5.selectAll("circle")
 				.data(data)
@@ -188,10 +188,10 @@ d3.dsv(';')("datasets/dataFinalUS.csv", function (data) {
 				.append("circle")
 				.attr("cx", function (d) {
 					//console.log([d.Longitude, d.Latitude]);
-					return projection([d.Longitude, d.Latitude])[0];
+					return projection([d.longitude, d.latitude])[0];
 				})
 				.attr("cy", function (d) {
-					return projection([d.Longitude, d.Latitude])[1];
+					return projection([d.longitude, d.latitude])[1];
 				})
 				.attr("r", function (d) {
 					return Math.sqrt(d.total_victims) * 2;
