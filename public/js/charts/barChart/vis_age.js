@@ -31,6 +31,8 @@ var svg1 = d3.select("#bar_chart").append("svg").classed("barChart",true)
 var div2= d3.select("body").append("div")
     .attr("class", "tooltip")         
     .style("opacity", 0);
+var bcolor=d3.scale.ordinal()
+      .range(["#74AB66", "#5FA16A","#49976E","#3C9170","#218575","#0F7C79"]);
 // get the data
 d3.csv("datasets/dataAge.csv", function(error, data) {
 if (error) throw error;
@@ -52,8 +54,8 @@ y.domain([0, d3.max(data, function(d) { return d.value; })]);
     .selectAll("text")
       .style("text-anchor", "end")
       .attr("dx", "-1em")
-      .attr("dy", "-.55em")
-      .attr("transform", "rotate(-35)" );
+      .attr("dy", "-.15em")
+      .attr("transform", "rotate(-30)" );
 
   svg1.append("g")
       .attr("class", "y axis")
@@ -67,7 +69,11 @@ y.domain([0, d3.max(data, function(d) { return d.value; })]);
   svg1.selectAll("bar")
       .data(data)
     .enter().append("rect")
-      .style("fill", "steelblue")
+      .each(function(d,i){
+            d3.select(this).attr({
+                  fill:bcolor.range()[i],
+            })
+      })
       .attr("x", function(d) { return x(d.categorie); })
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(d.value); })
