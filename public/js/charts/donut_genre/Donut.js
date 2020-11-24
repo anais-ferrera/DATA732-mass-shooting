@@ -1,11 +1,7 @@
-
-/**
- * 
- */
 class Donut {
 
 	/**
-	 * DONUT CONSTRUCTOR
+	 * donut constructor
 	 * @param {*} width 
 	 * @param {*} height 
 	 * @param {*} svgID 
@@ -30,9 +26,7 @@ class Donut {
 	}
 
 
-	/**
-	 * Setup components for the donut
-	 */
+	//Setup components for the donut
 	init() {
 		// SVG
 		this.svg = d3.select(this.svgID)
@@ -41,12 +35,12 @@ class Donut {
 			.append("g")
 			.attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
 
-		// GROUPS
+		// append svg in a group
 		this.svg.append("g").attr("class", "slices");
 		this.svg.append("g").attr("class", "labels");
 		this.svg.append("g").attr("class", "lines");
 
-		// TOOLTIP
+		// tooltip
 		this.tooltip = d3.select("body")
 			.append("div")
 			.attr("id", this.tooltipID)
@@ -62,12 +56,10 @@ class Donut {
 	 */
 	change(color, data) {
 
-		// LOCAL VALUES
 		let radius = this.radius;
 		let tooltip = this.tooltip;
-		let percentage = this.getPercentage;
 
-		// ARCS
+		// arcs
 		let arc = d3.svg.arc()
 			.outerRadius(radius * 0.8)
 			.innerRadius(radius * 0.4);
@@ -76,12 +68,10 @@ class Donut {
 			.innerRadius(radius * 0.9)
 			.outerRadius(radius * 0.9);
 
-		// KEY
 		let key = function (d) {
 			return d.data.label;
 		}
 
-		// PIE
 		let pie = d3.layout.pie()
 			.sort(null)
 			.value(function (d) {
@@ -97,19 +87,19 @@ class Donut {
 			.style("fill", function (d) { return color(d.data.label); })
 			.attr("class", "slice")
 
-			// ON SLICE MOUSEOVER
+			// mouseover
 			.on("mouseover", function (d) {
 				tooltip.transition()
 					.duration(200)
 					.style("opacity", 1);
-				// SHOW PERCENTAGE
+				// percentage
 				let percentage = (d.endAngle - d.startAngle)/(2*Math.PI)*100; 
 				tooltip.text(percentage + " %")
 					.style("left", (d3.event.pageX) + "px")
 					.style("top", (d3.event.pageY - 28) + "px");
 			})
 
-			// ON SLICE MOUSEOUT
+			// mouseout
 			.on("mouseout", function (d) {
 				tooltip.transition()
 					.duration(200)
@@ -212,10 +202,6 @@ class Donut {
 		return local;
 	}
 
-
-	/**
-	 * Return the labels of the chart
-	 */
 	getLabels(categories) {
 		let labels = [];
 		categories.forEach(function (c) {
@@ -224,9 +210,8 @@ class Donut {
 		return labels;
 	}
 
-
 	/**
-	 * Regroup data into a smaller number of categories
+	 * 
 	 * @param {*} new_categories 
 	 */
 	reCategorize(categories, data) {
@@ -246,7 +231,7 @@ class Donut {
 
 
 	/**
-	 * Count occurences in data
+	 * 
 	 * @param {Array<JSON>} data 
 	 */
 	countOccurences(categories, data) {
@@ -271,8 +256,6 @@ class Donut {
 	 * @param {*} data 
 	 */
 	generateDonut(scheme, categories, data, doReduce = false) {
-
-		// DONUT DATA
 		let donutData = null;
 		if (doReduce) {
 			donutData = this.reCategorize(categories, data).sort(function (a, b) {
@@ -283,25 +266,18 @@ class Donut {
 				return a.count - b.count;
 			});
 		}
-
-		// FORMAT CHART ELEMENTS
 		donutData = this.format(donutData, scheme);
 
-		// LABELS
+		// labels of categories
 		let domain = this.getLabels(categories);
 
-		// COLOR SCHEME
+		// color
 		let colors = d3.scale.ordinal()
 			.domain(domain)
 			.range(scheme);
 
 		this.change(colors, donutData);
 	}
-
-
-	/**
-	 * Clear and remove the chart
-	 */
 	clear() {
 		// SVG
 		this.svg.selectAll("g")

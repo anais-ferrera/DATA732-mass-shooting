@@ -7,14 +7,14 @@
 		<link rel="stylesheet" href="css/main_style.css" />
 		<link rel="stylesheet" href="css/map_style.css" />
 		<link rel="stylesheet" href="css/donut_style.css" />
-		<link rel="stylesheet" href="css/pie_style.css" />
+
 	</head>
 
 	<body>
 		<div class="charts">
 			
 			<div class="map_chart">
-				<h1>Location of mass shooting in USA</h1>
+				<h1>Localisation des mass shootings aux Etats-Unis</h1>
 				<svg id="map"></svg>
 				<svg id="legend"></svg> 
 			</div>
@@ -25,26 +25,23 @@
 		</div>
 
 		<div class="charts">
-			<h1>Mass shooting event by gender</h1>
+			<h1>Auteurs des mass shootings par sexe</h1>
 			<div class="donut_chart">
 				<svg id="donut"></svg>
 			</div>
-			<!-- <div class="bar_chart">
-				<svg id="age_balance"></svg>
-			</div> -->
 
 		</div>
 		
 		<div class="charts">	
 			<div class="pieChart">
-				<h1>Arme legale</h1>
+				<h1>Armes obtenues légalement</h1>
 				<svg  width=960 height=500 id ="pie_chart"></svg>
 			</div>
 			
 		</div>
 		<div class="charts">
 			<div class="barChart">
-				<h1>Age</h1>
+				<h1>Diagramme en bar du nombre d'auteurs de mass shootings par catégorie d'âge</h1>
 				<svg width=600 height=300 id ="bar_chart"></svg>
 			</div>
 			
@@ -52,18 +49,10 @@
 		<script type="text/javascript" src="js/utils.js"></script>
 		<script type="text/javascript" src="js/charts/donut_genre/vis_donut.js"></script>
 		<script type="text/javascript" src="js/charts/donut_genre/Donut.js"></script>
-
 		<script type="text/javascript" src="js/charts/map/vis_map.js"></script>
-
-
 		<script type="text/javascript" src="js/charts/pieChart_armeLegale/vis_pie.js"></script>
-
-
-
 		<script type="text/javascript" src="js/charts/barChart/vis_age.js"></script>
 		
-		<!--<script type="text/javascript" src="js/charts/bar/vis_bar.js"></script> -->
-
 
 		 <script>
 

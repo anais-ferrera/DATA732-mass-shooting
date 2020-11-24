@@ -1,21 +1,18 @@
-var pwidth = 960,
-    pheight = 500,
+var pwidth = 800,
+    pheight = 300,
     // find the min of width and height and devided by 2
     pradius = Math.min(pwidth, pheight) / 2;
 
-// Scales are functions that map from an input domain to an output range.  Ordinal scales have a discrete domain, such as a set of names or categories. 
-// from: https://github.com/mbostock/d3/wiki/Ordinal-Scales
+// color for the pie
 var pcolor = d3.scale.ordinal()
     .range(["#586F2D", "#0A7A7A", "#848484"]);
 
-// Constructs a new arc generator with the default innerRadius-, outerRadius-, startAngle- and endAngle-accessor functions.  
-// from: https://github.com/mbostock/d3/wiki/SVG-Shapes#arc
+// Arc
 var arc = d3.svg.arc()
-    // the outer radius of the pie chart.
+    // the outer radius of the pie chart
     .outerRadius(pradius - 10)
     // the inner radius of the pie chart, set 0 for now
     .innerRadius(0);
-
 
 // Constructs a new pie function
 var pie = d3.layout.pie()
@@ -48,7 +45,7 @@ d3.csv("datasets/dataArme.csv", function(error, data) {
         div1.transition()
               .duration(200)
               .style("opacity",.9);
-        div1.html("Nb : "+d.data.population)
+        div1.html(+d.data.pourcentage + " %")
               .style("left",(d3.event.pageX +10)+"px")
               .style("top",(d3.event.pageY -50)+"px");
     })

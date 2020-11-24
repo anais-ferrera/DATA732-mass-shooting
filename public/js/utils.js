@@ -1,15 +1,9 @@
-// maj +f5
-
-
-/* ===========================
-        MAP UTILS
-============================*/
-
+// For the map
 /**
- * Determine a value number for the total killed
- * in order to color the map
+ * 
  * @param {*} value number of killed
  */
+// Return a value to color the map according to the number of victims
 function reducevalue(value) {
 
     if (value <= 50) {
@@ -33,79 +27,11 @@ function reducevalue(value) {
 function getStateData(state, data) {
 
     let ret = [];
-    let local = JSON.parse(JSON.stringify(data));   // deep copy of JSON array
+    let local = JSON.parse(JSON.stringify(data));  
     local.forEach(function (d) {
         if (d.State == state) {
             ret.push(d);
         }
     });
     return ret;
-}
-
-
-
-/* ===========================
-        BAR UTILS
-============================*/
-
-/**
- * Tells if a number is between two values
- * @param {*} a 
- * @param {*} b 
- * @param {*} value 
- */
-function isBetween(a, b, value) {
-
-    let min = Math.min(a, b);
-    let max = Math.max(a, b);
-    return value ? this >= min && this <= max : this > min && this < max;
-}
-
-
-function countBarOccurences(categories, data) {
-
-    let local = JSON.parse(JSON.stringify(data));
-    let localCat = JSON.parse(JSON.stringify(categories));
-
-    local.forEach(function (d) {
-        localCat.forEach(function (c) {
-            if (isBetween (c.sub[0], c.sub[1], d.Average_Shooter_Age)) {
-                c.count += 1;
-            }
-        });
-    });
-    return localCat;
-}
-
-
-/**
- * Return labels of the chart
- * @param {*} categories 
- */
-function getLabels(categories) {
-    let labels = [];
-    categories.forEach(function (c) {
-        labels.push(c.label);
-    })
-    return labels;
-}
-
-
-/**
- * 
- */
-function makeRange(range, data) {
-
-    let local = JSON.parse(JSON.stringify(data));
-    let localrange = JSON.parse(JSON.stringify(range));
-
-    local.forEach(function (d) {
-        let age = d.Average_Shooter_Age;
-        localCat.forEach(function (c) {
-            if (c['sub'].includes(place)) {
-                c['count'] += 1;
-            }
-        });
-    });
-    return localrange;
 }

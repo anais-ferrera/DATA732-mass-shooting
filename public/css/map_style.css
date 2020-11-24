@@ -1,9 +1,6 @@
-/* On mouse hover, lighten state color */
 path:hover {
 	fill-opacity: .7;
 }
-
-/* Style for Custom Tooltip */
 div.tooltip {   
  	position: absolute;           
 	text-align: left;           
@@ -33,11 +30,8 @@ div#description {
 	line-height: 20px;
 	text-align: justify;
 }
-              
-/* Legend Position Style */
-.legend {
+              .legend {
 	font: 11px sans-serif;
-	/* position:; */
 	left:800px;
 	top:350px;
 }

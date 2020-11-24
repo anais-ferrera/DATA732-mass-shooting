@@ -1,4 +1,4 @@
-// PARAMS
+// params
 let dWidth = 860;
 let dHeight = 350;
 let colors = ["#860A0A", "#0A7A7A"];
@@ -9,7 +9,7 @@ let categories = [
 ];
 
 
-// IMPORT DATA
+// load data from dataFinalUS
 d3.csv("datasets/dataFinalUS.csv", function(data) {
 
 
