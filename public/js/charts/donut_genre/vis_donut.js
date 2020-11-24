@@ -1,7 +1,7 @@
 // PARAMS
 let dWidth = 860;
 let dHeight = 350;
-let colors = ["#7B241C", "#1A5276"];
+let colors = ["#860A0A", "#0A7A7A"];
 
 let categories = [
     { label: "Female", sub: ["F","Female","Male and Female"], count: 0 },
