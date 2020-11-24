@@ -6,7 +6,7 @@ var pwidth = 960,
 // Scales are functions that map from an input domain to an output range.  Ordinal scales have a discrete domain, such as a set of names or categories. 
 // from: https://github.com/mbostock/d3/wiki/Ordinal-Scales
 var pcolor = d3.scale.ordinal()
-    .range(["#E84A27", "#E7E009", "#ABAB9D"]);
+    .range(["#586F2D", "#0A7A7A", "#848484"]);
 
 // Constructs a new arc generator with the default innerRadius-, outerRadius-, startAngle- and endAngle-accessor functions.  
 // from: https://github.com/mbostock/d3/wiki/SVG-Shapes#arc
