@@ -210,19 +210,19 @@ d3.csv("datasets/dataFinalUS.csv", function (data) {
 						.style("top", (d3.event.pageY - 28) + "px");
 					// FILL INFORMATIONS ABOUT THE SHOOTING
 					d3.select("#killed")
-					  .html("<b><font color=\"red\">" + Math.floor(d.Number_of_Victim_Fatalities) + "</font></b>" + " killed");
+					  .html("<b><font color=\"red\">" + Math.floor(d.fatalities) + "</font></b>" + " killed");
 
 					d3.select("#injured")
-					  .html("<b><font color=\"red\">" + Math.floor(d.Number_of_Victims_Injured) + "</font></b>" + " injured");
+					  .html("<b><font color=\"red\">" + Math.floor(d.injured) + "</font></b>" + " injured");
 
 					d3.select("#title")
-						.text(d.Title);
+						.text(d.case);
 
 					d3.select("#date")
-						.text(d.Date_detailed);
+						.text(d.date);
 
 					d3.select("#description")
-						.text(d.Description);
+						.text(d.summary);
 
 				})
 

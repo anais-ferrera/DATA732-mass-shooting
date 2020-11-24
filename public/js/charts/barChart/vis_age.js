@@ -1,5 +1,3 @@
-
-
 // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = 600 - margin.left - margin.right,
@@ -30,7 +28,7 @@ var svg1 = d3.select("#bar_chart").append("svg").classed("barChart",true)
         .attr("transform", 
               "translate(" + margin.left + "," + margin.top + ")");
 
-var div= d3.select("body").append("div")
+var div2= d3.select("body").append("div")
     .attr("class", "tooltip")         
     .style("opacity", 0);
 // get the data
@@ -39,7 +37,6 @@ if (error) throw error;
 
 // format the data
 data.forEach(function(d) {
-  //d.categorie = +d.categorie;
   d.value = +d.value;
 });
 
@@ -76,15 +73,15 @@ y.domain([0, d3.max(data, function(d) { return d.value; })]);
       .attr("y", function(d) { return y(d.value); })
       .attr("height", function(d) { return height - y(d.value); })
       .on("mouseover",function(d){
-            div.transition()
+            div2.transition()
                   .duration(200)
                   .style("opacity",.9);
-            div.html("Nb per age : "+d.value)
+            div2.html("Nb per age : "+d.value)
                   .style("left",(d3.event.pageX +10)+"px")
                   .style("top",(d3.event.pageY -50)+"px");
       })
       .on("mouseout",function(d){
-            div.transition()
+            div2.transition()
                   .duration(500)
                   .style("opacity",0);
       });

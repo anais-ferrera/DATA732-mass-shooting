@@ -1,14 +1,3 @@
-// IMPORT DATA
-//d3.dsv(';')("datasets/dataFinalUS.csv", function(data) {
-
-//  let donut = new Donut(dWidth, dHeight, "#donut", "donutTooltip");
-//  donut.generateDonut(colors, categories, data, true);
-  //  var pie = d3.pie()
-  //  console.log(pie(data))
-//});
-
-
-
 var pwidth = 960,
     pheight = 500,
     // find the min of width and height and devided by 2
@@ -16,8 +5,8 @@ var pwidth = 960,
 
 // Scales are functions that map from an input domain to an output range.  Ordinal scales have a discrete domain, such as a set of names or categories. 
 // from: https://github.com/mbostock/d3/wiki/Ordinal-Scales
-var color = d3.scale.ordinal()
-    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+var pcolor = d3.scale.ordinal()
+    .range(["#E84A27", "#E7E009", "#ABAB9D"]);
 
 // Constructs a new arc generator with the default innerRadius-, outerRadius-, startAngle- and endAngle-accessor functions.  
 // from: https://github.com/mbostock/d3/wiki/SVG-Shapes#arc
@@ -59,12 +48,12 @@ d3.csv("datasets/dataArme.csv", function(error, data) {
         div1.transition()
               .duration(200)
               .style("opacity",.9);
-        div1.html("Nb : "+d.population)
+        div1.html("Nb : "+d.data.population)
               .style("left",(d3.event.pageX +10)+"px")
               .style("top",(d3.event.pageY -50)+"px");
     })
         .on("mouseout",function(d){
-        div1.transition()
+            div1.transition()
               .duration(500)
               .style("opacity",0);
         });
@@ -72,7 +61,7 @@ d3.csv("datasets/dataArme.csv", function(error, data) {
   // append path, the pie for each legal
   g.append("path")
       .attr("d", arc)
-      .style("fill", function(d) { return color(d.data.legal); });
+      .style("fill", function(d) { return pcolor(d.data.legal); });
 
   // add text
   g.append("text")

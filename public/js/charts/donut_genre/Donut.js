@@ -104,7 +104,7 @@ class Donut {
 					.style("opacity", 1);
 				// SHOW PERCENTAGE
 				let percentage = (d.endAngle - d.startAngle)/(2*Math.PI)*100; 
-				tooltip.text(percentage + "%")
+				tooltip.text(percentage + " %")
 					.style("left", (d3.event.pageX) + "px")
 					.style("top", (d3.event.pageY - 28) + "px");
 			})
