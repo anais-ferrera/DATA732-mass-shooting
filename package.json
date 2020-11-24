@@ -1,19 +1,19 @@
 {
-  "name": "d3js-mass_shootings_usa",
+  "name": "DATA732-mass-shooting",
   "version": "1.0.0",
   "description": "data visualisation of mass shootings in usa",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NanoClem/D3js-mass_shootings_usa.git"
+    "url": ""
   },
-  "author": "Elsa Ruelle",
+  "author": "Elsa Ruelle et Anaïs Ferrera",
   "license": "ISC",
   "bugs": {
-    "url": "*"
+    "url": ""
   },
   "homepage": "",
   "dependencies": {
