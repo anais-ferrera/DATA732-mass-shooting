@@ -1,0 +1,15 @@
+table{
+    display: block;
+    overflow: scroll;
+    width: 1800px;
+    height: 1000px;
+    border-collapse: collapse;
+}
+td {
+    border: 1px black solid;
+    padding: 1px;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    font-family: Arial, sans-serif;
+}
+tr:hover {background-color: #f5f5f5;}
