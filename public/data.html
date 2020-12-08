@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <link rel="stylesheet" href="css/table.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+    <body>
+        <div class="content">
+            <header>
+                <div class="header-background"></div>
+                <div class="title">
+                    <h1>
+                        Dataset
+                    </h1>
+                    <p>Ci-dessous la base de données que nous avons utilisé pour réaliser notre dashboard.</p>
+                </div>
+            </header>
+        </div>
+     
+            
+        
+
+    <script> d3.text("datasets/dataFinalUS.csv", function(data) {
+        var parsedCSV = d3.csv.parseRows(data);
+
+        var container = d3.select("body")
+            .append("table")
+
+            .selectAll("tr")
+                .data(parsedCSV).enter()
+                .append("tr")
+
+            .selectAll("td")
+                .data(function(d) { return d; }).enter()
+                .append("td")
+                .text(function(d) { return d; });
+        });
+    </script>
+    <script src="https://cdn.rawgit.com/novus/nvd3/v1.8.1/build/nv.d3.min.js"></script>
+
+</div>
+</body>
+</html>
+
+
