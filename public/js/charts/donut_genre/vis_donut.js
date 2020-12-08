@@ -1,5 +1,5 @@
 // params
-let dWidth = 860;
+let dWidth = 500;
 let dHeight = 350;
 let colors = ["#860A0A", "#0A7A7A"];
 
@@ -15,6 +15,6 @@ d3.csv("datasets/dataFinalUS.csv", function(data) {
 
     let donut = new Donut(dWidth, dHeight, "#donut", "donutTooltip");
     console.log(data);
-	donut.generateDonut(colors, categories, data, true);
+    donut.generateDonut(colors, categories, data, true);
 });
 

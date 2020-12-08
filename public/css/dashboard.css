@@ -1,0 +1,183 @@
+html {
+    height: 100%;
+}
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+
+body {
+    position: relative;
+    font-family: "proxima nova", Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.4;
+    background-color: #f8f8f8;
+    min-width: 300px;
+    min-height: 100%;
+    color: #666;
+    overflow: auto;
+    display: inline-block;
+    width: 100%;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+button{
+
+  width:85px;
+  height:85px;
+  background:#AC4141;
+  box-shadow:2px 2px 8px #aaa;
+  font:bold 13px Arial;
+  border-radius:50%;
+  color:rgb(255, 255, 255);
+  position: bottom;
+
+}
+
+a {
+  color: inherit;
+  text-decoration: white;
+}
+
+.content {
+    min-height: 100%;
+    min-width: middle;
+    display: inline-block;
+    width: 100%;
+}
+
+header {
+    position: relative;
+    margin-bottom: 10px;
+    min-width: 300px;
+}
+
+.header-background {
+    background-color: #fff;
+    opacity: 0.9;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 2px 1px rgba(175, 175, 175, 0.3);
+}
+
+.title {
+    position: relative;
+    width: 400px;
+    min-width: 300px;
+    margin: 0 auto;
+    padding: 15px 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h1 {
+    font-size: 25px;
+    font-weight: lighter;
+    line-height: 50px;
+}
+
+.chart {
+  height : 310px;
+  width : 550px;
+  margin: 5px auto 0 auto;
+  padding : 5px;
+  border : 1px #CCC solid;
+  background-color: #fcfcfc;
+  display: inline-block;
+  vertical-align: top;
+}
+
+#genres{
+  width:500px;
+  height: 350px;
+}
+
+#age{
+  width:1000px; 
+  height: 500px;
+}
+
+#carte{
+  width:1000px; 
+  height: 700px;
+}
+
+#pieChart{
+  width:500px;
+  height: 350px;
+}
+
+.chartContainer{
+  margin: 0 auto;
+}
+
+@media (min-width: 500px) {
+  .chartContainer{
+    width:1000px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .chartContainer{
+    width:1140px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .chartContainer{
+    width:1710px;
+  }
+}
+
+.chartTitle {
+  padding-top: 20px;
+  margin: 2px auto;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  color:#333;
+  font-size:20px;
+}
+
+.domain {
+  fill : None;
+  stroke : grey;
+  shape-rendering: crispEdges;
+}
+
+
+#footer{
+	text-align: center;
+	display: block;
+	height: 50px;
+	width: 100%;
+  margin-top: 200px;
+  margin-bottom: 40px;
+}
+
+
+#footer p {
+	text-align: center;				
+	font-weight: bold;
+	font: inherit;
+	position: relative;
+  top: 28px;
+  font-size: 16px;
+}
+
+
