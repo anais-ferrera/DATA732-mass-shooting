@@ -45,7 +45,7 @@ d3.csv("datasets/dataArme.csv", function(error, data) {
         div1.transition()
               .duration(200)
               .style("opacity",.9);
-        div1.html(+d.data.pourcentage + " %")
+        div1.html(d3.format(".4r")(+d.data.pourcentage)+"%")
               .style("left",(d3.event.pageX +10)+"px")
               .style("top",(d3.event.pageY -50)+"px");
     })
@@ -64,7 +64,8 @@ d3.csv("datasets/dataArme.csv", function(error, data) {
   g.append("text")
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
       .attr("dy", ".35em")
-      .style("text-anchor", "middle")
+      .style("fill","white")
+      .style("text-anchor" ,"middle")
       .text(function(d) { return d.data.legal; });
 
 });
