@@ -2,7 +2,7 @@ html {
     height: 100%;
 }
 
-html, body, div, span, h1, h2, h3, h4, h5, h6, p {
+html, body, div, span, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
     border: 0;
@@ -13,6 +13,10 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p {
     background: transparent;
 }
 
+p {
+  margin: 5;
+  text-align: center;
+}
 
 body {
     position: relative;
@@ -94,12 +98,13 @@ h1 {
 .chart {
   height : 310px;
   width : 550px;
-  margin: 5px auto 0 auto;
-  padding : 5px;
+  margin: 5px 5px 5px 5px;
+  padding: 5px;
   border : 1px #CCC solid;
   background-color: #fcfcfc;
   display: inline-block;
   vertical-align: top;
+  
 }
 
 #genres{
@@ -108,12 +113,12 @@ h1 {
 }
 
 #age{
-  width:1000px; 
+  width:1025px; 
   height: 500px;
 }
 
 #carte{
-  width:1000px; 
+  width:1025px; 
   height: 700px;
 }
 

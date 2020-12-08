@@ -11,7 +11,7 @@ class Donut {
 		// 
 		this.width = width;
 		this.height = height;
-		this.radius = Math.min(width, height) / 2;
+		this.radius = Math.min(width, height) / 3;
 		this.svgID = svgID;
 		this.tooltipID = tooltipClass;
 		//
@@ -39,6 +39,7 @@ class Donut {
 		this.svg.append("g").attr("class", "slices");
 		this.svg.append("g").attr("class", "labels");
 		this.svg.append("g").attr("class", "lines");
+
 
 		// tooltip
 		this.tooltip = d3.select("body")
